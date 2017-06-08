@@ -43,7 +43,6 @@ export default {
 
     if (PERIODS.length > 0) {
       const NOW = new Date()
-
       let day = NOW.getDate().toString()
       day = _.size(day) === 1 ? `0${day}` : day
       let month = (NOW.getMonth() + 1).toString()

@@ -37,6 +37,8 @@ export default {
     month = _.size(month) === 1 ? `0${month}` : month
 
     const TODAY = _.find(state.allPeriods, ['MiladiTarihKisa', `${day}.${month}.${NOW.getFullYear()}`])
+
+    state.moonPhase = TODAY['AyinSekliURL']
     state.periods = _.pick(TODAY, ['Imsak', 'Gunes', 'Ogle', 'Ikindi', 'Aksam', 'Yatsi'])
   },
 

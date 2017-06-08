@@ -32,6 +32,7 @@ export const store = new Vuex.Store({
     nextPeriod: '',
     counter: null,
     periodTotalTime: null,
+    moonPhase: '',
     // Ramadan
     ramadan: {
       start: moment('5-27-2017', 'MM-DD-YYYY'),

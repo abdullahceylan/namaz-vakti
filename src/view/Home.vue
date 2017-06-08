@@ -2,6 +2,8 @@
   .Home
     .Info
       router-link.Info-link(:to="{ name: 'Settings' }") {{ townName }}
+      .moon
+        img(:src="moonPhase")
     .Times(:class="currentPeriod")
       rowRamadan(v-if="showRamadan")
       Period(v-for="(time, name) in periods", :name="name", :time="time", :key="name")
@@ -20,6 +22,9 @@
       rowRamadan
     },
     computed: {
+      moonPhase () {
+        return this.$store.state.moonPhase
+      },
       periods () {
         return this.$store.state.periods
       },
@@ -56,7 +61,7 @@
     height: 100%;
   }
 
-  $Info-height: 28px;
+  $Info-height: 34px;
 
   .Info {
     position: absolute;
@@ -73,7 +78,23 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      letter-spacing: 1px;
     }
+
+    .moon {
+      position: absolute;
+      right: 7px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 23px;
+      width: 1em;
+      height: 1em;
+
+      img {
+        max-width: 100%;
+      }
+    }
+
   }
 
   .Times {
