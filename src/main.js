@@ -3,6 +3,9 @@ import App from './App'
 import i18n from './i18n'
 import router from './router'
 
+import Offline from './offline'
+Offline()
+
 import { store } from './store'
 
 Vue.config.productionTip = false

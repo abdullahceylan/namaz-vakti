@@ -8,6 +8,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+const OfflinePlugin = require('offline-plugin')
 
 var env = config.build.env
 
@@ -90,7 +91,23 @@ var webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    new OfflinePlugin({
+      safeToUseOptionalCaches: true,
+      publicPath: '/namaz-vakti/',
+      caches: {
+        main: [
+          'static/**/*',
+          'index.html'
+        ]
+      },
+      ServiceWorker: {
+        events: true
+      },
+      AppCache: {
+        events: true
+      }
+    })
   ]
 })
 
