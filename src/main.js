@@ -3,8 +3,16 @@ import App from './App'
 import i18n from './i18n'
 import router from './router'
 
-import Offline from './offline'
-Offline()
+const OfflinePlugin = require('offline-plugin/runtime')
+
+OfflinePlugin.install({
+  onUpdateReady: function () {
+    OfflinePlugin.applyUpdate()
+  },
+  onUpdated: function () {
+    window.location.reload()
+  }
+})
 
 import { store } from './store'
 
