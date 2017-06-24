@@ -94,7 +94,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     ]),
     new OfflinePlugin({
       safeToUseOptionalCaches: true,
-      publicPath: '/namaz-vakti/',
+      // publicPath: '/namaz-vakti/',
       caches: {
         main: [
           'static/**/*',
